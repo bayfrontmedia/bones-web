@@ -65,6 +65,16 @@ or you can use the `php bones make:key` command to generate a key you can define
 
 Update all config files located in the `config/` directory as needed. ([see docs](https://github.com/bayfrontmedia/bones/blob/master/docs/usage/config.md))
 
+### Set file permissions
+
+The web server must have write permissions to the `storage/app` directory.
+Typically, this is done by granting the `www-data` group ownership and write access:
+
+```shell
+chgrp -R www-data /path/to/storage/app
+chmod -R 775 /path/to/storage/app
+```
+
 ### Setup a cron job
 
 If a cron job will be used to run the scheduled jobs, add a new entry to your crontab to run every minute:

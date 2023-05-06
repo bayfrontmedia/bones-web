@@ -83,11 +83,36 @@ class DeployApp extends Command
 
         $target = $input->getArgument('target');
 
-        $output->writeln('Pulling from Git target: ' . $target . '...');
-
         /*
          * |--------------------------------------------------------------------------
          * | Insert whatever commands are needed to deploy your app here
+         * |--------------------------------------------------------------------------
+         */
+
+        $output->writeln('Pulling from Git target: ' . $target . '...');
+
+        shell_exec('git fetch --all');
+        shell_exec('git reset --hard origin/' . $target);
+
+        /*
+         * Remove untracked files if desired (use caution)
+         *
+         * $output->writeln('Removing untracked files...');
+         * shell_exec('git clean -fd');
+         */
+
+        $output->writeln('Installing dependencies...');
+
+        shell_exec('composer install');
+
+        $output->writeln('Updating permissions...');
+
+        shell_exec('chgrp -R www-data ' . App::storagePath('/app'));
+        shell_exec('chmod -R 775 ' . App::storagePath('/app'));
+
+        /*
+         * |--------------------------------------------------------------------------
+         * | Do not edit below
          * |--------------------------------------------------------------------------
          */
 

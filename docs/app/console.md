@@ -10,7 +10,9 @@ Bones console documentation can be found [here](https://github.com/bayfrontmedia
 ## DeployApp
 
 This command is designed to help facilitate the app deployment process.
-You will need to customize this command, depending on your application and server configuration.
+
+An example has been given, but you will most likely need to customize this command
+depending on your application and server configuration.
 
 > **NOTE:** This command requires an additional `backup_path` key to exist in the [app configuration file](configuration.md#app)
 in order to use the backup option.
