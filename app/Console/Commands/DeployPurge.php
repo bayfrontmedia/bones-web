@@ -1,4 +1,4 @@
-<?php
+<?php /** @noinspection PhpUnused */
 
 namespace App\Console\Commands;
 
@@ -58,7 +58,7 @@ class DeployPurge extends Command
         $backup_dirs = glob(rtrim(App::getConfig('app.backup_path'), '/') . '/*', GLOB_ONLYDIR);
 
         if (empty($backup_dirs)) {
-            $output->writeln('No existing backups to purge.');
+            $output->writeln('<info>No existing backups to purge.</info>');
             return Command::SUCCESS;
         }
 
@@ -82,7 +82,7 @@ class DeployPurge extends Command
 
             $days = (int)$input->getOption('days');
 
-            $output->writeln('Purging backups older than ' . $days . ' days...');
+            $output->writeln('<info>Purging backups older than ' . $days . ' days...</info>');
 
             foreach ($backups as $backup) {
 
@@ -95,7 +95,7 @@ class DeployPurge extends Command
 
             }
 
-            $output->writeln('Completed purging ' . $days_removed . ' backups older than ' . $days . ' days...');
+            $output->writeln('<info>Completed purging ' . $days_removed . ' backups older than ' . $days . ' days...</info>');
 
         }
 
@@ -103,7 +103,7 @@ class DeployPurge extends Command
 
             $limit = (int)$input->getOption('limit');
 
-            $output->writeln('Purging oldest backups over limit of ' . $limit . '...');
+            $output->writeln('<info>Purging oldest backups over limit of ' . $limit . '...</info>');
 
             if ($limit <= 0) { // Remove all
                 $over_limit = $backups;
@@ -118,7 +118,7 @@ class DeployPurge extends Command
 
             }
 
-            $output->writeln('Completed purging ' . $limit_removed . ' backups over limit of ' . $limit . '...');
+            $output->writeln('<info>Completed purging ' . $limit_removed . ' backups over limit of ' . $limit . '...</info>');
 
         }
 

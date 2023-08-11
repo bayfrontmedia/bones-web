@@ -12,6 +12,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `Fixed` for any bug fixes.
 - `Security` in case of vulnerabilities
 
+## [1.0.2] - 2023.08.10
+
+### Changed
+
+- Cleaned up deploy console commands
+- Fixed `.gitignore` bugs
+
 ## [1.0.1] - 2023.05.06
 
 ### Added

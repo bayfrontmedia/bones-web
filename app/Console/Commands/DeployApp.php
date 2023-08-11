@@ -1,4 +1,4 @@
-<?php
+<?php /** @noinspection PhpUnused */
 
 namespace App\Console\Commands;
 
@@ -55,7 +55,7 @@ class DeployApp extends Command
 
             } else {
 
-                $output->writeln('Backing up...');
+                $output->writeln('<info>Backing up...</info>');
 
                 $git_path = App::basePath('/.git');
 
@@ -73,7 +73,7 @@ class DeployApp extends Command
 
                     shell_exec('rsync -ar ' . App::basePath('/') . ' ' . $backup_location);
 
-                    $output->writeln('Backed up to: ' . $backup_location);
+                    $output->writeln('<info>Backed up to: ' . $backup_location . '<info>');
 
                 }
 
@@ -89,26 +89,36 @@ class DeployApp extends Command
          * |--------------------------------------------------------------------------
          */
 
-        $output->writeln('Pulling from Git target: ' . $target . '...');
+        $output->writeln('<info>Pulling from Git target: ' . $target . '...</info>');
 
         shell_exec('git fetch --all');
-        shell_exec('git reset --hard origin/' . $target);
+        shell_exec('git reset --hard ' . $target);
 
         /*
          * Remove untracked files if desired (use caution)
          *
-         * $output->writeln('Removing untracked files...');
+         * $output->writeln('<info>Removing untracked files...</info');
          * shell_exec('git clean -fd');
          */
 
-        $output->writeln('Installing dependencies...');
+        $output->writeln('<info>Installing dependencies...</info>');
 
-        shell_exec('composer install');
+        shell_exec('composer install --no-dev --no-interaction --optimize-autoloader');
 
-        $output->writeln('Updating permissions...');
+        /*
+         * Database migrations
+         *
+         * $output->writeln('<info>Running database migrations...</info>');
+         * shell_exec('php bones migrate:up');
+         */
 
-        shell_exec('chgrp -R www-data ' . App::storagePath('/app'));
-        shell_exec('chmod -R 775 ' . App::storagePath('/app'));
+        /*
+         * Update permissions (if needed)
+         *
+         * $output->writeln('<info>Updating permissions...</info>');
+         * shell_exec('chgrp -R www-data ' . App::storagePath('/app'));
+         * shell_exec('chmod -R 775 ' . App::storagePath('/app'));
+         */
 
         /*
          * |--------------------------------------------------------------------------

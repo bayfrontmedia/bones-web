@@ -22,7 +22,6 @@
     "issues": "https://github.com/bayfrontmedia/bones-web/issues"
   },
   "config": {
-    "optimize-autoloader": true,
     "preferred-install": "dist"
   },
   "require": {
@@ -33,6 +32,8 @@
     "bayfrontmedia/translation": "^2.0",
     "league/flysystem": "^3.0",
     "monolog/monolog": "^3.3"
+  },
+  "require-dev": {
   },
   "autoload": {
     "psr-4": {
