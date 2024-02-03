@@ -2,10 +2,10 @@
 
 Locale-related filters.
 
-| Subscriber (method)                     | Filter                | Priority |
+| Subscription (method)                   | Filter                | Priority |
 |-----------------------------------------|-----------------------|----------|
-| [addLocaleToPrefix](#addlocaletoprefix) | `router.route_prefix` | 5        |
- | [addLocaleArray](#addlocalearray)       | `veil.data`           | 5        |
+| [addLocaleToPrefix](#addlocaletoprefix) | `router.route_prefix` | 10       |
+ | [addLocaleArray](#addlocalearray)       | `veil.data`           | 10       |
 
 ## addLocaleToPrefix
 

@@ -3,6 +3,7 @@
 namespace App\Filters;
 
 use Bayfront\Bones\Abstracts\FilterSubscriber;
+use Bayfront\Bones\Application\Services\Filters\FilterSubscription;
 use Bayfront\Bones\Application\Utilities\App;
 use Bayfront\Bones\Interfaces\FilterSubscriberInterface;
 use Bayfront\Cookies\Cookie;
@@ -31,20 +32,9 @@ class Locale extends FilterSubscriber implements FilterSubscriberInterface
 
     public function getSubscriptions(): array
     {
-
         return [
-            'router.route_prefix' => [
-                [
-                    'method' => 'addLocaleToPrefix',
-                    'priority' => 5
-                ]
-            ],
-            'veil.data' => [
-                [
-                    'method' => 'addLocaleArray',
-                    'priority' => 5
-                ]
-            ]
+            new FilterSubscription('router.route_prefix', [$this, 'addLocaleToPrefix'], 10),
+            new FilterSubscription('veil.data', [$this, 'addLocaleArray'], 10)
         ];
     }
 

@@ -4,7 +4,8 @@ namespace App\Events;
 
 use Bayfront\ArrayHelpers\Arr;
 use Bayfront\Bones\Abstracts\EventSubscriber;
-use Bayfront\Bones\Application\Services\FilterService;
+use Bayfront\Bones\Application\Services\Events\EventSubscription;
+use Bayfront\Bones\Application\Services\Filters\FilterService;
 use Bayfront\Bones\Application\Utilities\App;
 use Bayfront\Bones\Interfaces\EventSubscriberInterface;
 use Bayfront\Cookies\Cookie;
@@ -51,18 +52,8 @@ class Routes extends EventSubscriber implements EventSubscriberInterface
     public function getSubscriptions(): array
     {
         return [
-            'app.bootstrap' => [
-                [
-                    'method' => 'addRoutes',
-                    'priority' => 5
-                ]
-            ],
-            'app.http' => [
-                [
-                    'method' => 'handleLocale',
-                    'priority' => 5
-                ]
-            ]
+            new EventSubscription('app.bootstrap', [$this, 'addRoutes'], 10),
+            new EventSubscription('app.http', [$this, 'handleLocale'], 10)
         ];
     }
 
@@ -262,9 +253,8 @@ class Routes extends EventSubscriber implements EventSubscriberInterface
 
         $redirect_to = $request_arr['protocol'] . str_replace('//', '/', $request_arr['host'] . '/' . $redirect_path);
 
-        unset($request_arr['query']['locale']);
-
         if (!empty($request_arr['query'])) {
+            unset($request_arr['query']['locale']);
             $redirect_to .= '?' . http_build_query($request_arr['query']);
         }
 

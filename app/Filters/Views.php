@@ -3,6 +3,7 @@
 namespace App\Filters;
 
 use Bayfront\Bones\Abstracts\FilterSubscriber;
+use Bayfront\Bones\Application\Services\Filters\FilterSubscription;
 use Bayfront\Bones\Application\Utilities\App;
 use Bayfront\Bones\Interfaces\FilterSubscriberInterface;
 use Bayfront\RouteIt\Router;
@@ -37,24 +38,10 @@ class Views extends FilterSubscriber implements FilterSubscriberInterface
 
     public function getSubscriptions(): array
     {
-
         return [
-            'veil.data' => [
-                [
-                    'method' => 'addData',
-                    'priority' => 5
-                ]
-            ],
-            'response.body' => [
-                [
-                    'method' => 'addTagRoute',
-                    'priority' => 5
-                ],
-                [
-                    'method' => 'addTagSay',
-                    'priority' => 5
-                ]
-            ]
+            new FilterSubscription('veil.data', [$this, 'addData'], 10),
+            new FilterSubscription('response.body', [$this, 'addTagRoute'], 10),
+            new FilterSubscription('response.body', [$this, 'addTagSay'], 10)
         ];
     }
 
@@ -92,7 +79,7 @@ class Views extends FilterSubscriber implements FilterSubscriberInterface
 
         preg_match_all("/@route:[\w.]+/", $body, $tags); // Any word character or period
 
-        if (isset($tags[0]) && !empty($tags[0])) { // If a tag was found
+        if (isset($tags[0]) && is_array($tags[0])) { // If a tag was found
 
             foreach ($tags[0] as $tag) {
 
@@ -127,7 +114,7 @@ class Views extends FilterSubscriber implements FilterSubscriberInterface
 
         preg_match_all("/@say:[\w.]+/", $body, $tags); // Any word character or period
 
-        if (isset($tags[0]) && !empty($tags[0])) { // If a tag was found
+        if (isset($tags[0]) && is_array($tags[0])) { // If a tag was found
 
             try {
 

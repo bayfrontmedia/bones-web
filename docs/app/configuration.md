@@ -11,7 +11,9 @@ Bones app configuration documentation can be found [here](https://github.com/bay
 
 ## App
 
-In addition to the `app.php` configuration required by Bones, this application adds the following:
+The `app.php` file includes [configuration required by Bones](https://github.com/bayfrontmedia/bones/blob/master/docs/usage/config.md).
+
+In addition, this file also contains the following keys:
 
 - `backup_path` - The `backup_path` key specifies the path where deployment backups will be saved on the server.
   This key must exist in order to use the deployment-related [console commands](console.md).
@@ -23,7 +25,7 @@ In addition to the `app.php` configuration required by Bones, this application a
 - `locale.routes.exclude.hosts` - Array of hosts to exclude from being handled by the [handleLocale](/docs/events/routes.md#handlelocale) event subscriber.
 - `locale.routes.exclude.paths` - Array of paths to exclude from being handled by the [handleLocale](/docs/events/routes.md#handlelocale) event subscriber.
 - `locale.routes.exclude.param` - Single parameter which, if existing, will exclude the route from being handled by the [handleLocale](/docs/events/routes.md#handlelocale) event subscriber.
-- `version` - App version
+- `version` - Current app version (string)
 
 ## Router
 

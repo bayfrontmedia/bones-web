@@ -2,10 +2,9 @@
 
 Actions to perform when the scheduler service exists in the container.
 
-| Subscriber (method)   | Event     | Priority |
+| Subscription (method) | Event     | Priority |
 |-----------------------|-----------|----------|
-| [schedule](#schedule) | `app.cli` | 5        |
-
+| [schedule](#schedule) | `app.cli` | 10       |
 
 ## schedule
 

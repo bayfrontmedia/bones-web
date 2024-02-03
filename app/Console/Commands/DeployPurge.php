@@ -42,9 +42,9 @@ class DeployPurge extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
 
-        if (!App::getConfig('app.backup_path')
-            || App::getConfig('app.backup_path') == ''
-            || App::getConfig('app.backup_path') == '/') {
+        if (!App::getConfig('deploy.backup_path')
+            || App::getConfig('deploy.backup_path') == ''
+            || App::getConfig('deploy.backup_path') == '/') {
 
             $output->writeln('<error>Unable to purge deployment backups: No backup path specified in app config file</error>');
             $output->writeln('<info>For more info, see: https://github.com/bayfrontmedia/bones/blob/master/docs/usage/config.md#deploy</info>');
@@ -55,80 +55,99 @@ class DeployPurge extends Command
 
         $output->writeln('<info>Beginning purge of deployment backups...</info>');
 
-        $backup_dirs = glob(rtrim(App::getConfig('app.backup_path'), '/') . '/*', GLOB_ONLYDIR);
+        // ------------------------- Take app offline -------------------------
 
-        if (empty($backup_dirs)) {
+        $output->writeln('<info>Putting Bones into maintenance mode...</info>');
+
+        shell_exec('php bones down --message="Update in progress. Check back in a few minutes."');
+
+        // ------------------------- Purge -------------------------
+
+        $backup_dirs = glob(rtrim(App::getConfig('deploy.backup_path'), '/') . '/*', GLOB_ONLYDIR);
+
+        if (empty($backup_dirs)) { // No backups exist
+
+            $removed = 0;
             $output->writeln('<info>No existing backups to purge.</info>');
-            return Command::SUCCESS;
-        }
 
-        $backups = [];
+        } else { // Backups exist
 
-        foreach ($backup_dirs as $dir) {
+            $backups = [];
 
-            $backups[] = [
-                'path' => $dir,
-                'modified' => filemtime($dir)
-            ];
+            foreach ($backup_dirs as $dir) {
 
-        }
+                $backups[] = [
+                    'path' => $dir,
+                    'modified' => filemtime($dir)
+                ];
 
-        $backups = Arr::multisort($backups, 'modified', true); // Sort by newest first
+            }
 
-        $days_removed = 0;
-        $limit_removed = 0;
+            $backups = Arr::multisort($backups, 'modified', true); // Sort by newest first
 
-        if ($input->getOption('days') != null) {
+            $days_removed = 0;
+            $limit_removed = 0;
 
-            $days = (int)$input->getOption('days');
+            if ($input->getOption('days') != null) {
 
-            $output->writeln('<info>Purging backups older than ' . $days . ' days...</info>');
+                $days = (int)$input->getOption('days');
 
-            foreach ($backups as $backup) {
+                $output->writeln('<info>Purging backups older than ' . $days . ' days...</info>');
 
-                if ($backup['modified'] < time() - ($days * 24 * 60 * 60)) {
+                foreach ($backups as $backup) {
 
-                    shell_exec('rm -rf ' . $backup['path']);
-                    $days_removed++;
+                    if ($backup['modified'] < time() - ($days * 24 * 60 * 60)) {
+
+                        shell_exec('rm -rf ' . $backup['path']);
+                        $days_removed++;
+
+                    }
 
                 }
 
+                $output->writeln('<info>Completed purging ' . $days_removed . ' backups older than ' . $days . ' days</info>');
+
             }
 
-            $output->writeln('<info>Completed purging ' . $days_removed . ' backups older than ' . $days . ' days...</info>');
+            if ($input->getOption('limit') !== null) {
+
+                $limit = (int)$input->getOption('limit');
+
+                $output->writeln('<info>Purging oldest backups over limit of ' . $limit . '...</info>');
+
+                if ($limit <= 0) { // Remove all
+                    $over_limit = $backups;
+                } else {
+                    $over_limit = array_slice($backups, $limit); // Slice array at the count
+                }
+
+                foreach ($over_limit as $over) {
+
+                    shell_exec('rm -rf ' . $over['path']);
+                    $limit_removed++;
+
+                }
+
+                $output->writeln('<info>Completed purging ' . $limit_removed . ' backups over limit of ' . $limit . '</info>');
+
+            }
+
+            $removed = $days_removed + $limit_removed;
 
         }
 
-        if ($input->getOption('limit') !== null) {
+        // ------------------------- Bring app online -------------------------
 
-            $limit = (int)$input->getOption('limit');
+        $output->writeln('<info>Taking Bones out of maintenance mode...</info>');
 
-            $output->writeln('<info>Purging oldest backups over limit of ' . $limit . '...</info>');
+        shell_exec('php bones up');
 
-            if ($limit <= 0) { // Remove all
-                $over_limit = $backups;
-            } else {
-                $over_limit = array_slice($backups, $limit); // Slice array at the count
-            }
+        // -------------------------Return -------------------------
 
-            foreach ($over_limit as $over) {
-
-                shell_exec('rm -rf ' . $over['path']);
-                $limit_removed++;
-
-            }
-
-            $output->writeln('<info>Completed purging ' . $limit_removed . ' backups over limit of ' . $limit . '...</info>');
-
-        }
-
-        $removed = $days_removed + $limit_removed;
-
-        $output->writeln('<info>Deployment backups purge complete! (Removed ' . $removed . ' backups)</info>');
+        $output->writeln('<info>Deployment backups purge complete! (Removed ' . $removed . ' backups in ' . App::getElapsedTime() . 'secs)</info>');
 
         return Command::SUCCESS;
 
     }
-
 
 }

@@ -3,6 +3,7 @@
 namespace App\Events;
 
 use Bayfront\Bones\Abstracts\EventSubscriber;
+use Bayfront\Bones\Application\Services\Events\EventSubscription;
 use Bayfront\Bones\Application\Utilities\App;
 use Bayfront\Bones\Interfaces\EventSubscriberInterface;
 use Monolog\Logger;
@@ -40,13 +41,9 @@ class Dev extends EventSubscriber implements EventSubscriberInterface
         }
 
         return [
-            'app.bootstrap' => [
-                [
-                    'method' => 'logDevMode',
-                    'priority' => 5
-                ]
-            ]
+            new EventSubscription('app.bootstrap', [$this, 'logDevMode'], 10)
         ];
+
     }
 
     /**
