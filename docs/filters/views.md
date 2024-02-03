@@ -4,9 +4,9 @@ View-related filters.
 
 | Subscriber (method)         | Filter          | Priority |
 |-----------------------------|-----------------|----------|
-| [addData](#adddata)         | `veil.data`     | 5        |
-| [addTagRoute](#addtagroute) | `response.body` | 5        |
-| [addTagSay](#addtagsay)     | `response.body` | 5        |
+| [addData](#adddata)         | `veil.data`     | 10       |
+| [addTagRoute](#addtagroute) | `response.body` | 10       |
+| [addTagSay](#addtagsay)     | `response.body` | 10       |
 
 ## addData
 

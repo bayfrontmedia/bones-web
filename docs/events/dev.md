@@ -4,7 +4,7 @@ Actions to perform when environment = `dev`.
 
 | Subscriber (method)       | Event           | Priority |
 |---------------------------|-----------------|----------|
-| [logDevMode](#logdevmode) | `app.bootstrap` | 5        |
+| [logDevMode](#logdevmode) | `app.bootstrap` | 10       |
 
 
 ## logDevMode

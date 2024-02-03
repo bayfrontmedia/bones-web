@@ -4,7 +4,7 @@ Log entry modifications.
 
 | Subscriber (method)               | Event      | Priority |
 |-----------------------------------|------------|----------|
-| [addRequestInfo](#addrequestinfo) | `app.http` | 5        |
+| [addRequestInfo](#addrequestinfo) | `app.http` | 10       |
 
 
 ## addRequestInfo
