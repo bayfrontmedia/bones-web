@@ -12,6 +12,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `Fixed` for any bug fixes.
 - `Security` in case of vulnerabilities
 
+## [2.0.0] - 2024.02.03
+
+### Changed
+
+- Updated to work with Bones `v4.0`
+
 ## [1.0.2] - 2023.08.10
 
 ### Changed

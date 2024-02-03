@@ -3,6 +3,7 @@
 namespace App\Events;
 
 use Bayfront\Bones\Abstracts\EventSubscriber;
+use Bayfront\Bones\Application\Services\Events\EventSubscription;
 use Bayfront\Bones\Interfaces\EventSubscriberInterface;
 use Bayfront\HttpRequest\Request;
 use Monolog\Logger;
@@ -34,12 +35,7 @@ class Logs extends EventSubscriber implements EventSubscriberInterface
     public function getSubscriptions(): array
     {
         return [
-            'app.http' => [
-                [
-                    'method' => 'addRequestInfo',
-                    'priority' => 5
-                ]
-            ]
+            new EventSubscription('app.http', [$this, 'addRequestInfo'], 10)
         ];
     }
 

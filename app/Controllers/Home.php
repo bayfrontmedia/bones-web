@@ -3,8 +3,8 @@
 namespace App\Controllers;
 
 use Bayfront\Bones\Abstracts\Controller;
-use Bayfront\Bones\Application\Services\EventService;
-use Bayfront\Bones\Application\Services\FilterService;
+use Bayfront\Bones\Application\Services\Events\EventService;
+use Bayfront\Bones\Application\Services\Filters\FilterService;
 use Bayfront\HttpResponse\Response;
 use Bayfront\Veil\FileNotFoundException;
 use Bayfront\Veil\Veil;
@@ -39,7 +39,7 @@ class Home extends Controller
      * @throws FileNotFoundException
      */
 
-    public function index(array $params)
+    public function index(array $params): void
     {
 
         $data = $this->filters->doFilter('veil.data', [

@@ -3,6 +3,7 @@
 namespace App\Events;
 
 use Bayfront\Bones\Abstracts\EventSubscriber;
+use Bayfront\Bones\Application\Services\Events\EventSubscription;
 use Bayfront\Bones\Interfaces\EventSubscriberInterface;
 use Bayfront\CronScheduler\Cron;
 use Bayfront\CronScheduler\LabelExistsException;
@@ -32,12 +33,7 @@ class ScheduledJobs extends EventSubscriber implements EventSubscriberInterface
     public function getSubscriptions(): array
     {
         return [
-            'app.cli' => [
-                [
-                    'method' => 'schedule',
-                    'priority' => 5
-                ]
-            ]
+            new EventSubscription('app.cli', [$this, 'schedule'], 10)
         ];
     }
 

@@ -3,6 +3,7 @@
 namespace App\Filters;
 
 use Bayfront\Bones\Abstracts\FilterSubscriber;
+use Bayfront\Bones\Application\Services\Filters\FilterSubscription;
 use Bayfront\Bones\Application\Utilities\App;
 use Bayfront\Bones\Interfaces\FilterSubscriberInterface;
 
@@ -27,14 +28,8 @@ class Console extends FilterSubscriber implements FilterSubscriberInterface
 
     public function getSubscriptions(): array
     {
-
         return [
-            'about.bones' => [
-                [
-                    'method' => 'addAppInfo',
-                    'priority' => 5
-                ]
-            ]
+            new FilterSubscription('about.bones', [$this, 'addAppInfo'], 10)
         ];
     }
 
