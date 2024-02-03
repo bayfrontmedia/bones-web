@@ -2,7 +2,7 @@
 
 Locale-related filters.
 
-| Subscriber (method)                     | Filter                | Priority |
+| Subscription (method)                   | Filter                | Priority |
 |-----------------------------------------|-----------------------|----------|
 | [addLocaleToPrefix](#addlocaletoprefix) | `router.route_prefix` | 10       |
  | [addLocaleArray](#addlocalearray)       | `veil.data`           | 10       |

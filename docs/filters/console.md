@@ -2,9 +2,9 @@
 
 Console-related filters.
 
-| Subscriber (method)         | Filter          | Priority |
-|-----------------------------|-----------------|----------|
-| [addAppInfo](#addappinfo)   | `about.bones`   | 10       |
+| Subscription (method)     | Filter        | Priority |
+|---------------------------|---------------|----------|
+| [addAppInfo](#addappinfo) | `about.bones` | 10       |
 
 ## addAppInfo
 

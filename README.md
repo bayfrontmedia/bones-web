@@ -63,7 +63,10 @@ or you can use the `php bones make:key` command to generate a key you can define
 
 ### Configure the app
 
-Update all config files located in the `config/` directory as needed. ([see docs](https://github.com/bayfrontmedia/bones/blob/master/docs/usage/config.md))
+Update `config/app.php` as needed. ([see docs](docs/app/configuration.md#app))
+
+If intending to use the included [DeployApp](docs/app/console.md#deployapp) or [DeployPurge](docs/app/console.md#deploypurge) console commands,
+update `config/deploy.php` as needed.
 
 ### Set file permissions
 

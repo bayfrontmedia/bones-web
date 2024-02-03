@@ -46,9 +46,9 @@ class DeployApp extends Command
 
         if ($input->getOption('backup')) {
 
-            if (!App::getConfig('app.backup_path')
-                || App::getConfig('app.backup_path') == ''
-                || App::getConfig('app.backup_path') == '/') {
+            if (!App::getConfig('deploy.backup_path')
+                || App::getConfig('deploy.backup_path') == ''
+                || App::getConfig('deploy.backup_path') == '/') {
 
                 $output->writeln('<error>Unable to create backup: No backup path specified in app config file</error>');
                 $output->writeln('<info>For more info, see: https://github.com/bayfrontmedia/bones/blob/master/docs/usage/config.md#deploy</info>');
@@ -65,7 +65,7 @@ class DeployApp extends Command
                     $git_hash = substr(trim(file_get_contents($git_path . '/' . $git_head)), 0, 7);
 
                     $backup_name = date('Y-m-d_H-i-s') . '_' . $git_hash;
-                    $backup_location = rtrim(App::getConfig('app.backup_path'), '/') . '/' . $backup_name;
+                    $backup_location = rtrim(App::getConfig('deploy.backup_path'), '/') . '/' . $backup_name;
 
                     if (!is_dir($backup_location)) {
                         mkdir($backup_location, 0755, true);
@@ -89,6 +89,14 @@ class DeployApp extends Command
          * |--------------------------------------------------------------------------
          */
 
+        // ------------------------- Take app offline -------------------------
+
+        $output->writeln('<info>Putting Bones into maintenance mode...</info>');
+
+        shell_exec('php bones down --message="Update in progress. Check back in a few minutes."');
+
+        // ------------------------- Pull from Git -------------------------
+
         $output->writeln('<info>Pulling from Git target: ' . $target . '...</info>');
 
         shell_exec('git fetch --all');
@@ -101,24 +109,34 @@ class DeployApp extends Command
          * shell_exec('git clean -fd');
          */
 
+        // -------------------------Install dependencies -------------------------
+
         $output->writeln('<info>Installing dependencies...</info>');
 
         shell_exec('composer install --no-dev --no-interaction --optimize-autoloader');
 
-        /*
-         * Database migrations
-         *
-         * $output->writeln('<info>Running database migrations...</info>');
-         * shell_exec('php bones migrate:up');
-         */
+        // ------------------------- Database migrations -------------------------
 
-        /*
-         * Update permissions (if needed)
-         *
-         * $output->writeln('<info>Updating permissions...</info>');
-         * shell_exec('chgrp -R www-data ' . App::storagePath('/app'));
-         * shell_exec('chmod -R 775 ' . App::storagePath('/app'));
-         */
+        // $output->writeln('<info>Running database migrations...</info>');
+        // shell_exec('php bones migrate:up --force');
+
+        // ------------------------- (Re)cache resources -------------------------
+
+        $output->writeln('<info>Caching resources...</info>');
+
+        shell_exec('php bones cache:save');
+
+        // ------------------------- Update permissions (if needed) -------------------------
+
+        // $output->writeln('<info>Updating permissions...</info>');
+        // shell_exec('chgrp -R www-data ' . App::storagePath('/app'));
+        // shell_exec('chmod -R 775 ' . App::storagePath('/app'));
+
+        // ------------------------- Bring app online -------------------------
+
+        $output->writeln('<info>Taking Bones out of maintenance mode...</info>');
+
+        shell_exec('php bones up');
 
         /*
          * |--------------------------------------------------------------------------
@@ -126,10 +144,9 @@ class DeployApp extends Command
          * |--------------------------------------------------------------------------
          */
 
-        $output->writeln('<info>Deployment complete!</info>');
+        $output->writeln('<info>Deployment completed in ' . App::getElapsedTime() . 'secs!</info>');
 
         return Command::SUCCESS;
     }
-
 
 }

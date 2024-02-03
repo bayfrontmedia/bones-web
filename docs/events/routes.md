@@ -2,7 +2,7 @@
 
 Router-related events.
 
-| Subscriber (method)           | Event           | Priority |
+| Subscription (method)         | Event           | Priority |
 |-------------------------------|-----------------|----------|
 | [addRoutes](#addroutes)       | `app.bootstrap` | 10       |
  | [handleLocale](#handlelocale) | `app.http`      | 10       |

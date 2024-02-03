@@ -2,7 +2,7 @@
 
 Actions to perform in order to bootstrap the application.
 
-| Subscriber (method)                             | Event           | Priority |
+| Subscription (method)                           | Event           | Priority |
 |-------------------------------------------------|-----------------|----------|
 | [modifyResponseHeaders](#modifyresponseheaders) | `app.bootstrap` | 10       |
 

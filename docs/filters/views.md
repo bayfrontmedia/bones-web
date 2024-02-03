@@ -2,7 +2,7 @@
 
 View-related filters.
 
-| Subscriber (method)         | Filter          | Priority |
+| Subscription (method)       | Filter          | Priority |
 |-----------------------------|-----------------|----------|
 | [addData](#adddata)         | `veil.data`     | 10       |
 | [addTagRoute](#addtagroute) | `response.body` | 10       |
