@@ -12,6 +12,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `Fixed` for any bug fixes.
 - `Security` in case of vulnerabilities
 
+## [2.0.1] - 2024.03.17
+
+### Changed
+
+- Updated dependencies
+- Updated file permissions of Monolog files
+
 ## [2.0.0] - 2024.02.03
 
 ### Changed
