@@ -65,7 +65,7 @@ $container->set('Monolog\Logger', function() {
 
     $level = App::environment() == App::ENV_DEV ? Level::Debug : Level::Info;
 
-    $file_handler = new RotatingFileHandler(App::storagePath('/app/logs/app.log'), 90, $level);
+    $file_handler = new RotatingFileHandler(App::storagePath('/app/logs/app.log'), 90, $level, true, 0775);
 
     $output = "[%datetime%] %channel%.%level_name%: %message% %context% %extra%\n";
     $date_format = 'Y-m-d H:i:s T';
