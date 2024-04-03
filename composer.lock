@@ -4,27 +4,26 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "efca4f6854cf70c0534a502d114ddc42",
+    "content-hash": "4d42850536eefa8c7706b8f7784e952c",
     "packages": [
         {
             "name": "bayfrontmedia/bones",
-            "version": "v4.1.1",
+            "version": "v4.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bayfrontmedia/bones.git",
-                "reference": "a3fdbfa2256260152238174e6bd41ecd3609502b"
+                "reference": "725121e5f75654e42b7f45fee37e09cb49dbcc4e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bayfrontmedia/bones/zipball/a3fdbfa2256260152238174e6bd41ecd3609502b",
-                "reference": "a3fdbfa2256260152238174e6bd41ecd3609502b",
+                "url": "https://api.github.com/repos/bayfrontmedia/bones/zipball/725121e5f75654e42b7f45fee37e09cb49dbcc4e",
+                "reference": "725121e5f75654e42b7f45fee37e09cb49dbcc4e",
                 "shasum": ""
             },
             "require": {
                 "bayfrontmedia/container": "^3.0",
                 "bayfrontmedia/cron-scheduler": "^2.0",
                 "bayfrontmedia/encryptor": "^2.0",
-                "bayfrontmedia/multi-logger": "^1.1",
                 "bayfrontmedia/php-array-helpers": "^2.0",
                 "bayfrontmedia/php-hooks": "^2.0",
                 "bayfrontmedia/php-http-request": "^v3.0",
@@ -66,9 +65,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bayfrontmedia/bones/issues",
-                "source": "https://github.com/bayfrontmedia/bones/tree/v4.1.1"
+                "source": "https://github.com/bayfrontmedia/bones/tree/v4.2.0"
             },
-            "time": "2024-01-29T00:02:16+00:00"
+            "time": "2024-04-03T15:41:26+00:00"
         },
         {
             "name": "bayfrontmedia/container",
@@ -223,55 +222,6 @@
                 "source": "https://github.com/bayfrontmedia/encryptor/tree/v2.0.0"
             },
             "time": "2023-01-26T18:19:53+00:00"
-        },
-        {
-            "name": "bayfrontmedia/multi-logger",
-            "version": "v1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/bayfrontmedia/multi-logger.git",
-                "reference": "1e64ba3c2ad6ceb1bdd4ba9c8e220334aa6776f4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/bayfrontmedia/multi-logger/zipball/1e64ba3c2ad6ceb1bdd4ba9c8e220334aa6776f4",
-                "reference": "1e64ba3c2ad6ceb1bdd4ba9c8e220334aa6776f4",
-                "shasum": ""
-            },
-            "require": {
-                "monolog/monolog": "^3.4",
-                "php": "^8.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Bayfront\\MultiLogger\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "John Robinson",
-                    "email": "john@bayfrontmedia.com",
-                    "homepage": "https://www.bayfrontmedia.com"
-                }
-            ],
-            "description": "An easy-to-use library used to manage multiple Monolog channels from a single class.",
-            "homepage": "https://github.com/bayfrontmedia/multi-logger",
-            "keywords": [
-                "log",
-                "logger",
-                "monolog",
-                "php"
-            ],
-            "support": {
-                "issues": "https://github.com/bayfrontmedia/multi-logger/issues",
-                "source": "https://github.com/bayfrontmedia/multi-logger/tree/v1.1.0"
-            },
-            "time": "2023-08-16T13:45:11+00:00"
         },
         {
             "name": "bayfrontmedia/php-array-helpers",
@@ -1197,16 +1147,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "3.25.1",
+            "version": "3.26.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "abbd664eb4381102c559d358420989f835208f18"
+                "reference": "072735c56cc0da00e10716dd90d5a7f7b40b36be"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/abbd664eb4381102c559d358420989f835208f18",
-                "reference": "abbd664eb4381102c559d358420989f835208f18",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/072735c56cc0da00e10716dd90d5a7f7b40b36be",
+                "reference": "072735c56cc0da00e10716dd90d5a7f7b40b36be",
                 "shasum": ""
             },
             "require": {
@@ -1271,7 +1221,7 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/flysystem/issues",
-                "source": "https://github.com/thephpleague/flysystem/tree/3.25.1"
+                "source": "https://github.com/thephpleague/flysystem/tree/3.26.0"
             },
             "funding": [
                 {
@@ -1283,7 +1233,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-03-16T12:53:19+00:00"
+            "time": "2024-03-25T11:49:53+00:00"
         },
         {
             "name": "league/flysystem-local",
@@ -1726,16 +1676,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v7.0.4",
+            "version": "v7.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "6b099f3306f7c9c2d2786ed736d0026b2903205f"
+                "reference": "fde915cd8e7eb99b3d531d3d5c09531429c3f9e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/6b099f3306f7c9c2d2786ed736d0026b2903205f",
-                "reference": "6b099f3306f7c9c2d2786ed736d0026b2903205f",
+                "url": "https://api.github.com/repos/symfony/console/zipball/fde915cd8e7eb99b3d531d3d5c09531429c3f9e5",
+                "reference": "fde915cd8e7eb99b3d531d3d5c09531429c3f9e5",
                 "shasum": ""
             },
             "require": {
@@ -1799,7 +1749,7 @@
                 "terminal"
             ],
             "support": {
-                "source": "https://github.com/symfony/console/tree/v7.0.4"
+                "source": "https://github.com/symfony/console/tree/v7.0.6"
             },
             "funding": [
                 {
@@ -1815,7 +1765,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-02-22T20:27:20+00:00"
+            "time": "2024-04-01T11:04:53+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -2217,16 +2167,16 @@
         },
         {
             "name": "symfony/service-contracts",
-            "version": "v3.4.1",
+            "version": "v3.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/service-contracts.git",
-                "reference": "fe07cbc8d837f60caf7018068e350cc5163681a0"
+                "reference": "11bbf19a0fb7b36345861e85c5768844c552906e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/fe07cbc8d837f60caf7018068e350cc5163681a0",
-                "reference": "fe07cbc8d837f60caf7018068e350cc5163681a0",
+                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/11bbf19a0fb7b36345861e85c5768844c552906e",
+                "reference": "11bbf19a0fb7b36345861e85c5768844c552906e",
                 "shasum": ""
             },
             "require": {
@@ -2279,7 +2229,7 @@
                 "standards"
             ],
             "support": {
-                "source": "https://github.com/symfony/service-contracts/tree/v3.4.1"
+                "source": "https://github.com/symfony/service-contracts/tree/v3.4.2"
             },
             "funding": [
                 {
@@ -2295,7 +2245,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-12-26T14:02:43+00:00"
+            "time": "2023-12-19T21:51:00+00:00"
         },
         {
             "name": "symfony/string",

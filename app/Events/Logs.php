@@ -4,9 +4,12 @@ namespace App\Events;
 
 use Bayfront\Bones\Abstracts\EventSubscriber;
 use Bayfront\Bones\Application\Services\Events\EventSubscription;
+use Bayfront\Bones\Exceptions\HttpException;
 use Bayfront\Bones\Interfaces\EventSubscriberInterface;
 use Bayfront\HttpRequest\Request;
+use Bayfront\HttpResponse\Response;
 use Monolog\Logger;
+use Throwable;
 
 /**
  * Log entry modifications.
@@ -35,7 +38,8 @@ class Logs extends EventSubscriber implements EventSubscriberInterface
     public function getSubscriptions(): array
     {
         return [
-            new EventSubscription('app.http', [$this, 'addRequestInfo'], 10)
+            new EventSubscription('app.http', [$this, 'addRequestInfo'], 10),
+            new EventSubscription('bones.exception', [$this, 'logException'], 10)
         ];
     }
 
@@ -57,6 +61,32 @@ class Logs extends EventSubscriber implements EventSubscriberInterface
             return $record;
 
         });
+
+    }
+
+    /**
+     * Log exceptions.
+     *
+     * @param Response $response
+     * @param Throwable $e
+     * @return void
+     */
+    public function logException(Response $response, Throwable $e): void
+    {
+
+        if (!$e instanceof HttpException) {
+
+            $this->log->critical($e->getMessage(), [
+                'status' => (string)$response->getStatusCode()['code'],
+                'message' => $e->getMessage(),
+                'type' => get_class($e),
+                'code' => (string)$e->getCode(),
+                'file' => $e->getFile(),
+                'line' => $e->getLine(),
+                'trace' => $e->getTrace()
+            ]);
+
+        }
 
     }
 

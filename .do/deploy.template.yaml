@@ -7,6 +7,7 @@ spec:
         branch: master
         repo: bayfrontmedia/bones-web
         deploy_on_push: true
+      build_command: php bones down && php bones cache:save && php bones up
       run_command: heroku-php-apache2 public/
       envs:
         - key: APP_KEY
