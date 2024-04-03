@@ -65,7 +65,7 @@ class Logs extends EventSubscriber implements EventSubscriberInterface
     }
 
     /**
-     * Log exceptions.
+     * Log exceptions which are not an instance of HttpException.
      *
      * @param Response $response
      * @param Throwable $e
