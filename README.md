@@ -65,9 +65,6 @@ or you can use the `php bones make:key` command to generate a key you can define
 
 Update `config/app.php` as needed. ([see docs](docs/app/configuration.md#app))
 
-If intending to use the included [DeployApp](docs/app/console.md#deployapp) or [DeployPurge](docs/app/console.md#deploypurge) console commands,
-update `config/deploy.php` as needed.
-
 ### Set file permissions
 
 The web server must have write permissions to the `storage/app` directory.
