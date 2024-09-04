@@ -27,11 +27,11 @@
   "require": {
     "php": "^8.0",
     "ext-pdo": "*",
-    "bayfrontmedia/bones": "^4.2",
+    "bayfrontmedia/bones": "^5.0",
     "bayfrontmedia/php-cookies": "^2.0",
     "bayfrontmedia/translation": "^2.0",
-    "league/flysystem": "^3.26",
-    "monolog/monolog": "^3.5"
+    "league/flysystem": "^3.28",
+    "monolog/monolog": "^3.7"
   },
   "require-dev": {
   },
