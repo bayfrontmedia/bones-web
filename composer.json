@@ -27,7 +27,7 @@
   "require": {
     "php": "^8.0",
     "ext-pdo": "*",
-    "bayfrontmedia/bones": "^5.0",
+    "bayfrontmedia/bones": "^5.2",
     "bayfrontmedia/php-cookies": "^2.0",
     "bayfrontmedia/translation": "^2.0",
     "league/flysystem": "^3.28",
