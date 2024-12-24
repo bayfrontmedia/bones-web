@@ -18,8 +18,6 @@ spec:
           value: "prod"
         - key: APP_TIMEZONE
           value: "UTC"
-        - key: APP_BACKUP_PATH
-          value: ""
         - key: ROUTER_HOST
           value: "${APP_DOMAIN}"
         - key: ROUTER_ROUTE_PREFIX
