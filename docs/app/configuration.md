@@ -15,8 +15,6 @@ The `app.php` file includes [configuration required by Bones](https://github.com
 
 In addition, this file also contains the following keys:
 
-- `backup_path` - The `backup_path` key specifies the path where deployment backups will be saved on the server.
-  This key must exist in order to use the deployment-related [console commands](console.md).
 - `locale.valid` - Array of valid translation locales
 - `locale.default` - Default translation locale used by the app
 - `locale.cookie.name` - Name of cookie and URL query used to save locale preference
