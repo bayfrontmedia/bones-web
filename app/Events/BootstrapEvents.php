@@ -11,7 +11,7 @@ use Bayfront\HttpResponse\Response;
 /**
  * Actions to perform in order to bootstrap the application.
  */
-class Bootstrap extends EventSubscriber implements EventSubscriberInterface
+class BootstrapEvents extends EventSubscriber implements EventSubscriberInterface
 {
 
     protected Response $response;

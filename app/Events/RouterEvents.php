@@ -20,7 +20,7 @@ use JetBrains\PhpStorm\NoReturn;
 /**
  * Router-related events.
  */
-class Routes extends EventSubscriber implements EventSubscriberInterface
+class RouterEvents extends EventSubscriber implements EventSubscriberInterface
 {
 
     protected FilterService $filter;

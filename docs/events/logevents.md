@@ -1,6 +1,6 @@
-# Events: Logs
+# Events: LogEvents
 
-Log entry modifications.
+Events which are logged.
 
 | Subscription (method)             | Event             | Priority |
 |-----------------------------------|-------------------|----------|

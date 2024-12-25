@@ -11,7 +11,7 @@ use Monolog\Logger;
 /**
  * Actions to perform when environment = "dev".
  */
-class Dev extends EventSubscriber implements EventSubscriberInterface
+class DevEvents extends EventSubscriber implements EventSubscriberInterface
 {
 
     /**

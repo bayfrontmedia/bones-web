@@ -12,7 +12,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `Fixed` for any bug fixes.
 - `Security` in case of vulnerabilities
 
-## [3.0.2] - 2024.12.29
+## [3.1.0] - 2024.12.25
+
+### Changed
+
+- Renamed default events and filters
+- Updated all dependencies
+
+## [3.0.2] - 2024.12.24
 
 ### Added
 

@@ -1,4 +1,4 @@
-# Events: Bootstrap
+# Events: BootstrapEvents
 
 Actions to perform in order to bootstrap the application.
 

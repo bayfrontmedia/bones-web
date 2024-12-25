@@ -1,4 +1,4 @@
-# Filters: Views
+# Filters: ViewFilters
 
 View-related filters.
 

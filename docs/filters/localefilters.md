@@ -1,4 +1,4 @@
-# Filters: Locale
+# Filters: LocaleFilters
 
 Locale-related filters.
 

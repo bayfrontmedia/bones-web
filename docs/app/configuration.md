@@ -20,9 +20,9 @@ In addition, this file also contains the following keys:
 - `locale.cookie.name` - Name of cookie and URL query used to save locale preference
 - `locale.cookie.duration` - Duration (in minutes) locale cookie is valid
 - `locale.routes.update` - Boolean value whether to update routes to include locale
-- `locale.routes.exclude.hosts` - Array of hosts to exclude from being handled by the [handleLocale](/docs/events/routes.md#handlelocale) event subscriber.
-- `locale.routes.exclude.paths` - Array of paths to exclude from being handled by the [handleLocale](/docs/events/routes.md#handlelocale) event subscriber.
-- `locale.routes.exclude.param` - Single parameter which, if existing, will exclude the route from being handled by the [handleLocale](/docs/events/routes.md#handlelocale) event subscriber.
+- `locale.routes.exclude.hosts` - Array of hosts to exclude from being handled by the [handleLocale](/docs/events/routerevents.md#handlelocale) event subscriber.
+- `locale.routes.exclude.paths` - Array of paths to exclude from being handled by the [handleLocale](/docs/events/routerevents.md#handlelocale) event subscriber.
+- `locale.routes.exclude.param` - Single parameter which, if existing, will exclude the route from being handled by the [handleLocale](/docs/events/routerevents.md#handlelocale) event subscriber.
 - `version` - Current app version (string)
 
 ## Router

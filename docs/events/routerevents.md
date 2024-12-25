@@ -1,4 +1,4 @@
-# Events: Routes
+# Events: RouterEvents
 
 Router-related events.
 

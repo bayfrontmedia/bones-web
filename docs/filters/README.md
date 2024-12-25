@@ -15,6 +15,6 @@ this app supports the following filters:
 
 ## Filter subscribers
 
-- [Console](console.md)
-- [Locale](locale.md)
-- [Views](views.md)
+- [ConsoleFilters](consolefilters.md)
+- [LocaleFilters](localefilters.md)
+- [ViewFilters](viewfilters.md)

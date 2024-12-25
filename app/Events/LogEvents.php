@@ -12,9 +12,9 @@ use Monolog\Logger;
 use Throwable;
 
 /**
- * Log entry modifications.
+ * Events which are logged.
  */
-class Logs extends EventSubscriber implements EventSubscriberInterface
+class LogEvents extends EventSubscriber implements EventSubscriberInterface
 {
 
     /**

@@ -14,7 +14,7 @@ use Monolog\Logger;
 /**
  * View-related filters.
  */
-class Views extends FilterSubscriber implements FilterSubscriberInterface
+class ViewFilters extends FilterSubscriber implements FilterSubscriberInterface
 {
 
     protected Logger $log;

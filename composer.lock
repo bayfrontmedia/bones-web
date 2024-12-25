@@ -371,16 +371,16 @@
         },
         {
             "name": "bayfrontmedia/php-http-request",
-            "version": "v3.1.1",
+            "version": "v3.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bayfrontmedia/php-http-request.git",
-                "reference": "c479adda66f64c8d891812883f6e4ee15133fdc5"
+                "reference": "73ed4ba7b0140548b22db02fe31fbfdb474376cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bayfrontmedia/php-http-request/zipball/c479adda66f64c8d891812883f6e4ee15133fdc5",
-                "reference": "c479adda66f64c8d891812883f6e4ee15133fdc5",
+                "url": "https://api.github.com/repos/bayfrontmedia/php-http-request/zipball/73ed4ba7b0140548b22db02fe31fbfdb474376cf",
+                "reference": "73ed4ba7b0140548b22db02fe31fbfdb474376cf",
                 "shasum": ""
             },
             "require": {
@@ -426,9 +426,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bayfrontmedia/php-http-request/issues",
-                "source": "https://github.com/bayfrontmedia/php-http-request/tree/v3.1.1"
+                "source": "https://github.com/bayfrontmedia/php-http-request/tree/v3.1.2"
             },
-            "time": "2024-12-23T20:15:15+00:00"
+            "time": "2024-12-25T12:25:19+00:00"
         },
         {
             "name": "bayfrontmedia/php-http-response",

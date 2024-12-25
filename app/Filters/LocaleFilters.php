@@ -12,7 +12,7 @@ use Bayfront\Translation\Translate;
 /**
  * Locale-related filters.
  */
-class Locale extends FilterSubscriber implements FilterSubscriberInterface
+class LocaleFilters extends FilterSubscriber implements FilterSubscriberInterface
 {
 
     protected Translate $translate;

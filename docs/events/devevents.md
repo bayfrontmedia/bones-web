@@ -1,4 +1,4 @@
-# Events: Dev
+# Events: DevEvents
 
 Actions to perform when environment = `dev`.
 

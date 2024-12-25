@@ -10,7 +10,7 @@ use Bayfront\Bones\Interfaces\FilterSubscriberInterface;
 /**
  * Console-related filters.
  */
-class Console extends FilterSubscriber implements FilterSubscriberInterface
+class ConsoleFilters extends FilterSubscriber implements FilterSubscriberInterface
 {
 
     /**

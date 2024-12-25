@@ -1,4 +1,4 @@
-# Filters: Console
+# Filters: ConsoleFilters
 
 Console-related filters.
 
