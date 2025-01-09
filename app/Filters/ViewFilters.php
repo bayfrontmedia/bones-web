@@ -9,7 +9,6 @@ use Bayfront\Bones\Interfaces\FilterSubscriberInterface;
 use Bayfront\RouteIt\Router;
 use Bayfront\Translation\Translate;
 use Bayfront\Translation\TranslationException;
-use Monolog\Logger;
 
 /**
  * View-related filters.
@@ -17,7 +16,6 @@ use Monolog\Logger;
 class ViewFilters extends FilterSubscriber implements FilterSubscriberInterface
 {
 
-    protected Logger $log;
     protected Router $router;
     protected Translate $translate;
 
@@ -25,9 +23,8 @@ class ViewFilters extends FilterSubscriber implements FilterSubscriberInterface
      * The container will resolve any dependencies.
      */
 
-    public function __construct(Logger $log, Router $router, Translate $translate)
+    public function __construct(Router $router, Translate $translate)
     {
-        $this->log = $log;
         $this->router = $router;
         $this->translate = $translate;
     }
@@ -131,16 +128,12 @@ class ViewFilters extends FilterSubscriber implements FilterSubscriberInterface
                     }
                 }
 
-            } catch (TranslationException $e) {
+            } catch (TranslationException) {
 
                 /*
                  * No translation exists for this tag.
                  * Do nothing.
                  */
-
-                $this->log->critical('Unexpected translation exception', [
-                    'exception' => $e->getTraceAsString()
-                ]);
 
             }
 

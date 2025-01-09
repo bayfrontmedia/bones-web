@@ -24,13 +24,3 @@ The [Flysystem](https://github.com/thephpleague/flysystem) library is added to t
 
 The [Local](https://flysystem.thephpleague.com/docs/adapter/local/) adapter is used with the root directory of
 `storage/app`.
-
-### Logger
-
-The [Monolog](https://github.com/Seldaek/monolog) library is added to the container as
-`Monolog\Logger` with alias `log`.
-
-Rotating logs are saved locally to `storage/app/logs` with a max of 90 files.
-
-Logs are saved with a minimum level of `info` unless the Bones environment is `dev`, in which case
-logs are saved with a minimum level of `debug`, and are also logged to the browser console.
