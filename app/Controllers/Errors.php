@@ -41,12 +41,8 @@ class Errors extends WebAppController
 
     public function error404(array $data): void
     {
-
-        $this->webAppService->events->doEvent('error.404', $data);
-
         $body = '<h1>&#x26D4; 404: Not Found</h1>';
-
-        $this->webAppService->response->setBody($this->webAppService->filters->doFilter('response.body', $body))->send();
+        $this->webAppService->response->setBody($this->webAppService->filters->doFilter('webapp.response.body', $body))->send();
     }
 
 }
