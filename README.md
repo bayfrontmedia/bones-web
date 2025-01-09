@@ -5,7 +5,6 @@ A simple boilerplate to begin building a web application with [Tailwind](https:/
 It includes:
 
 - Router
-- Job scheduler
 - Veil template engine with custom template tags
 - Translations
 - Frontend built using the Skin Tailwind CSS plugin

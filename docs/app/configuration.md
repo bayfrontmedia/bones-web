@@ -6,7 +6,6 @@ Bones app configuration documentation can be found [here](https://github.com/bay
 
 - [App](#app)
 - [Router](#router)
-- [Scheduler](#scheduler)
 - [Veil](#veil)
 
 ## App
@@ -28,10 +27,6 @@ In addition, this file also contains the following keys:
 ## Router
 
 The config file `router.php` exists for the [Router service](https://github.com/bayfrontmedia/bones/blob/master/docs/services/router.md).
-
-## Scheduler
-
-The config file `scheduler.php` exists for the [Scheduler service](https://github.com/bayfrontmedia/bones/blob/master/docs/services/scheduler.md).
 
 ## Veil
 
