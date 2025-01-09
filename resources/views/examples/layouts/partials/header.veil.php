@@ -1,4 +1,5 @@
 <?php
+use Bayfront\BonesService\WebApp\Utilities\VeilData;
 /*
  * Partial: Header
  *
@@ -16,13 +17,6 @@
  *   - locale.current
  *
  */
-
-use Bayfront\ArrayHelpers\Arr;
-
-if (!isset($data)) {
-    $data = [];
-}
-
 ?>
 <header class="container xl:max-w-screen-xl mx-auto p-4 tu-bg-content flex flex-row justify-between items-center h-full">
 
@@ -71,11 +65,13 @@ if (!isset($data)) {
 
             <?php
 
-            foreach (Arr::get($data, 'locale.valid', []) as $locale) {
+            $current_locale = VeilData::get('locale.current', '');
+
+            foreach (VeilData::get('locale.valid', []) as $locale) {
 
                 $class = '';
 
-                if (Arr::get($data, 'locale.current', '') == $locale) {
+                if ($current_locale == $locale) {
                     $class = ' text-theme-primary tu-bg-default';
                 }
 
