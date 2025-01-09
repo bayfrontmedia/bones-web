@@ -71,7 +71,7 @@ if (!isset($data)) {
 
             <?php
 
-            foreach (Arr::get($data, 'locale.all', []) as $locale) {
+            foreach (Arr::get($data, 'locale.valid', []) as $locale) {
 
                 $class = '';
 

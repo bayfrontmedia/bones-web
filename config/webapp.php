@@ -9,5 +9,29 @@
  */
 
 return [
-    'version' => '1.0.0', // Web app version
+    'locale' => [ // Locale settings
+        'enabled' => true,
+        'valid' => [ // Valid locales for which translations exist
+            'en',
+            'es'
+        ],
+        'default' => 'en', // Default locale
+        'cookie' => [
+            'name' => 'locale',
+            'duration' => 43200 // Cookie duration (in minutes)
+        ],
+        'routes' => [
+            'redirect' => true, // Add locale to routes?
+            'exclude' => [
+                'hosts' => [],
+                'paths' => [
+                    '/api'
+                ],
+                'param' => 'locale_exclude'
+            ]
+        ]
+    ],
+    'public' => [ // Added to Veil data array with key of "webapp"
+        'version' => '1.0.0', // Web app version
+    ]
 ];

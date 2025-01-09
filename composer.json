@@ -28,7 +28,6 @@
     "php": "^8.0",
     "bayfrontmedia/bones": "^5.3",
     "bayfrontmedia/bones-service-webapp": "dev-dev",
-    "bayfrontmedia/php-cookies": "^2.0",
     "bayfrontmedia/translation": "^2.0"
   },
   "require-dev": {

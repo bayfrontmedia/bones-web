@@ -25,21 +25,19 @@ use Bayfront\Translation\Translate;
 |--------------------------------------------------------------------------
 */
 
+// Translate
+
+$adapter = new Local(App::resourcesPath('/translations'));
+$translate = new Translate($adapter, App::getConfig('webapp.locale.default', 'en'), true);
+
+$container->set('Bayfront\Translation\Translate', $translate);
+$container->setAlias('translate', 'Bayfront\Translation\Translate');
+
+// WebApp service
+
 $webAppService = $container->make('Bayfront\BonesService\WebApp\WebAppService', [
     'config' => (array)App::getConfig('webapp', [])
 ]);
 
 $container->set('Bayfront\BonesService\WebApp\WebAppService', $webAppService);
 $container->setAlias('webAppService', 'Bayfront\BonesService\WebApp\WebAppService');
-
-// Translate
-
-$container->set('Bayfront\Translation\Translate', function () {
-
-    $adapter = new Local(App::resourcesPath('/translations'));
-
-    return new Translate($adapter, App::getConfig('app.locale.default', 'en'), true);
-
-});
-
-$container->setAlias('translate', 'Bayfront\Translation\Translate');

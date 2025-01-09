@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "88af9cd2e3fdb3f4e76dab15016fc763",
+    "content-hash": "97ff6641a3ab1a33ceaa5731fb14fdb6",
     "packages": [
         {
             "name": "bayfrontmedia/bones",
@@ -75,18 +75,20 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bayfrontmedia/bones-service-webapp.git",
-                "reference": "538d405f10b3990c00af8b97319416b1a9d6f89d"
+                "reference": "c81901666ac41d97a2e6003d44e6853c10d1d29a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bayfrontmedia/bones-service-webapp/zipball/538d405f10b3990c00af8b97319416b1a9d6f89d",
-                "reference": "538d405f10b3990c00af8b97319416b1a9d6f89d",
+                "url": "https://api.github.com/repos/bayfrontmedia/bones-service-webapp/zipball/c81901666ac41d97a2e6003d44e6853c10d1d29a",
+                "reference": "c81901666ac41d97a2e6003d44e6853c10d1d29a",
                 "shasum": ""
             },
             "require": {
                 "bayfrontmedia/bones": "^5.3",
                 "bayfrontmedia/php-array-helpers": "^2.0",
+                "bayfrontmedia/php-cookies": "^2.0",
                 "bayfrontmedia/route-it": "^3.1",
+                "bayfrontmedia/translation": "^2.0",
                 "bayfrontmedia/veil": "^2.1",
                 "php": "^8.0"
             },
@@ -120,7 +122,7 @@
                 "issues": "https://github.com/bayfrontmedia/bones-service-webapp/issues",
                 "source": "https://github.com/bayfrontmedia/bones-service-webapp/tree/dev"
             },
-            "time": "2025-01-08T23:55:51+00:00"
+            "time": "2025-01-09T21:28:24+00:00"
         },
         {
             "name": "bayfrontmedia/container",
