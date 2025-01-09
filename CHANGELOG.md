@@ -14,9 +14,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [4.0.0] - Upcoming
 
+### Added
+
+- Added `bones-service-webapp`
+
 ### Removed
 
 - Removed Monolog library
+- Removed Flysystem library
+- Removed `app.version` config value
+- Removed `@route:` template tag filter
 
 ## [3.1.0] - 2024.12.25
 

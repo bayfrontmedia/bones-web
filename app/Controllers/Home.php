@@ -2,57 +2,49 @@
 
 namespace App\Controllers;
 
-use Bayfront\Bones\Abstracts\Controller;
-use Bayfront\Bones\Application\Services\Events\EventService;
-use Bayfront\Bones\Application\Services\Filters\FilterService;
-use Bayfront\HttpResponse\Response;
-use Bayfront\Veil\FileNotFoundException;
-use Bayfront\Veil\Veil;
+use Bayfront\BonesService\WebApp\Abstracts\WebAppController;
+use Bayfront\BonesService\WebApp\Exceptions\WebAppServiceException;
+use Bayfront\BonesService\WebApp\WebAppService;
 
 /**
  * Home controller.
  */
-class Home extends Controller
+class Home extends WebAppController
 {
-
-    protected EventService $events;
-    protected FilterService $filters;
-    protected Response $response;
-    protected Veil $veil;
 
     /**
      * The container will resolve any dependencies.
-     * EventService is required by the abstract controller.
+     *
+     * @param WebAppService $webAppService
      */
-
-    public function __construct(EventService $events, FilterService $filters, Response $response, Veil $veil)
+    public function __construct(WebAppService $webAppService)
     {
-        $this->events = $events;
-        $this->filters = $filters;
-        $this->response = $response;
-        $this->veil = $veil;
-
-        parent::__construct($events);
+        parent::__construct($webAppService);
     }
 
     /**
-     * @throws FileNotFoundException
+     * @inheritDoc
      */
+    public function isPrivate(): bool
+    {
+        return false;
+    }
 
+    /**
+     * @param array $params
+     * @return void
+     * @throws WebAppServiceException
+     */
     public function index(array $params): void
     {
 
-        $data = $this->filters->doFilter('veil.data', [
+        $this->webAppService->respond('examples/pages/home', [
             'page' => [
                 'title' => 'Homepage',
                 'description' => 'This is a homepage example'
             ],
             'params' => $params
         ]);
-
-        $this->response->setBody(
-            $this->filters->doFilter('response.body', $this->veil->getView('examples/pages/home', $data))
-        )->send();
 
     }
 

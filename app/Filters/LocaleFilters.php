@@ -34,7 +34,7 @@ class LocaleFilters extends FilterSubscriber implements FilterSubscriberInterfac
     {
         return [
             new FilterSubscription('router.route_prefix', [$this, 'addLocaleToPrefix'], 10),
-            new FilterSubscription('veil.data', [$this, 'addLocaleArray'], 10)
+            new FilterSubscription('webapp.response.data', [$this, 'addLocaleArray'], 10)
         ];
     }
 

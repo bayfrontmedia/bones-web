@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cc85f9f65422c4af77f3fe73fef0fc0e",
+    "content-hash": "88af9cd2e3fdb3f4e76dab15016fc763",
     "packages": [
         {
             "name": "bayfrontmedia/bones",
@@ -68,6 +68,59 @@
                 "source": "https://github.com/bayfrontmedia/bones/tree/v5.3.2"
             },
             "time": "2024-12-23T22:44:22+00:00"
+        },
+        {
+            "name": "bayfrontmedia/bones-service-webapp",
+            "version": "dev-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bayfrontmedia/bones-service-webapp.git",
+                "reference": "538d405f10b3990c00af8b97319416b1a9d6f89d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bayfrontmedia/bones-service-webapp/zipball/538d405f10b3990c00af8b97319416b1a9d6f89d",
+                "reference": "538d405f10b3990c00af8b97319416b1a9d6f89d",
+                "shasum": ""
+            },
+            "require": {
+                "bayfrontmedia/bones": "^5.3",
+                "bayfrontmedia/php-array-helpers": "^2.0",
+                "bayfrontmedia/route-it": "^3.1",
+                "bayfrontmedia/veil": "^2.1",
+                "php": "^8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Bayfront\\BonesService\\WebApp\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "John Robinson",
+                    "email": "john@bayfrontmedia.com",
+                    "homepage": "https://www.bayfrontmedia.com"
+                }
+            ],
+            "description": "Web app service to be used with the Bones framework",
+            "homepage": "https://github.com/bayfrontmedia/bones-service-webapp",
+            "keywords": [
+                "Bones",
+                "app",
+                "framework",
+                "php",
+                "web"
+            ],
+            "support": {
+                "issues": "https://github.com/bayfrontmedia/bones-service-webapp/issues",
+                "source": "https://github.com/bayfrontmedia/bones-service-webapp/tree/dev"
+            },
+            "time": "2025-01-08T23:55:51+00:00"
         },
         {
             "name": "bayfrontmedia/container",
@@ -2189,7 +2242,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "bayfrontmedia/bones-service-webapp": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

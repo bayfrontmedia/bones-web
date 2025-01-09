@@ -25,6 +25,13 @@ use Bayfront\Translation\Translate;
 |--------------------------------------------------------------------------
 */
 
+$webAppService = $container->make('Bayfront\BonesService\WebApp\WebAppService', [
+    'config' => (array)App::getConfig('webapp', [])
+]);
+
+$container->set('Bayfront\BonesService\WebApp\WebAppService', $webAppService);
+$container->setAlias('webAppService', 'Bayfront\BonesService\WebApp\WebAppService');
+
 // Translate
 
 $container->set('Bayfront\Translation\Translate', function () {

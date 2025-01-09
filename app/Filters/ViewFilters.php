@@ -36,9 +36,8 @@ class ViewFilters extends FilterSubscriber implements FilterSubscriberInterface
     public function getSubscriptions(): array
     {
         return [
-            new FilterSubscription('veil.data', [$this, 'addData'], 10),
-            new FilterSubscription('response.body', [$this, 'addTagRoute'], 10),
-            new FilterSubscription('response.body', [$this, 'addTagSay'], 10)
+            new FilterSubscription('webapp.response.data', [$this, 'addData'], 10),
+            new FilterSubscription('webapp.response.body', [$this, 'addTagSay'], 10)
         ];
     }
 
@@ -57,41 +56,6 @@ class ViewFilters extends FilterSubscriber implements FilterSubscriberInterface
             ],
             'year' => date('Y')
         ]);
-    }
-
-    /**
-     * Add support for the @route: template tag which returns the URL of any named route.
-     *
-     * @param string $body
-     * @return string
-     */
-
-    public function addTagRoute(string $body): string
-    {
-
-        // @route
-
-        preg_match_all("/@route:[\w.]+/", $body, $tags); // Any word character or period
-
-        if (isset($tags[0]) && is_array($tags[0])) { // If a tag was found
-
-            foreach ($tags[0] as $tag) {
-
-                $use = explode(':', $tag, 2);
-
-                if (isset($use[1])) { // If valid @route syntax
-
-                    // Keep original string if not found
-
-                    $body = str_replace($tag, $this->router->getNamedRoute($use[1], $use[1]), $body);
-
-                }
-            }
-
-        }
-
-        return $body;
-
     }
 
     /**

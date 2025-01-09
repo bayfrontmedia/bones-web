@@ -2,10 +2,8 @@
 
 namespace App\Controllers;
 
-use Bayfront\Bones\Abstracts\Controller;
-use Bayfront\Bones\Application\Services\Events\EventService;
-use Bayfront\Bones\Application\Services\Filters\FilterService;
-use Bayfront\HttpResponse\Response;
+use Bayfront\BonesService\WebApp\Abstracts\WebAppController;
+use Bayfront\BonesService\WebApp\WebAppService;
 
 /**
  * Errors Controller.
@@ -13,25 +11,25 @@ use Bayfront\HttpResponse\Response;
  * This controller should only be resolved by the exception handler,
  * which will have already set the response status code.
  */
-class Errors extends Controller
+class Errors extends WebAppController
 {
-
-    protected EventService $events;
-    protected FilterService $filters;
-    protected Response $response;
 
     /**
      * The container will resolve any dependencies.
-     * EventService is required by the abstract controller.
+     *
+     * @param WebAppService $webAppService
      */
-
-    public function __construct(EventService $events, FilterService $filters, Response $response)
+    public function __construct(WebAppService $webAppService)
     {
-        $this->events = $events;
-        $this->filters = $filters;
-        $this->response = $response;
+        parent::__construct($webAppService);
+    }
 
-        parent::__construct($events);
+    /**
+     * @inheritDoc
+     */
+    public function isPrivate(): bool
+    {
+        return false;
     }
 
     /**
@@ -44,11 +42,11 @@ class Errors extends Controller
     public function error404(array $data): void
     {
 
-        $this->events->doEvent('error.404', $data);
+        $this->webAppService->events->doEvent('error.404', $data);
 
         $body = '<h1>&#x26D4; 404: Not Found</h1>';
 
-        $this->response->setBody($this->filters->doFilter('response.body', $body))->send();
+        $this->webAppService->response->setBody($this->webAppService->filters->doFilter('response.body', $body))->send();
     }
 
 }

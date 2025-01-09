@@ -2,6 +2,7 @@
 
 namespace App\Events;
 
+use App\Controllers\Home;
 use Bayfront\ArrayHelpers\Arr;
 use Bayfront\Bones\Abstracts\EventSubscriber;
 use Bayfront\Bones\Application\Services\Events\EventSubscription;
@@ -69,17 +70,23 @@ class RouterEvents extends EventSubscriber implements EventSubscriberInterface
         $this->router->setHost(App::getConfig('router.host'))
             ->setRoutePrefix(App::getConfig('router.route_prefix')) // Unfiltered
             ->addNamedRoute('/storage', 'storage')
-            ->get('/api', function() {
+            ->get('/status', function() {
                 $this->response->sendJson([
-                    'success' => true,
-                    'message' => 'This is an example of an endpoint whose route is unfiltered, and locale handling is excluded.'
+                    'data' => [
+                        'status' => 'OK'
+                    ],
+                    'meta' => [
+                        'version' => App::getConfig('webapp.version'),
+                        'elapsed' => App::getElapsedTime(),
+                        'time' => date('c')
+                    ]
                 ]);
             }, ['locale_exclude' => true])
             ->setRoutePrefix($this->filter->doFilter('router.route_prefix', App::getConfig('router.route_prefix'))) // Filtered
             ->addFallback('ANY', function () {
                 App::abort(404);
             })
-            ->get('/', 'Home:index', [], 'home');
+            ->get('/', [Home::class, 'index'], [], 'home');
 
     }
 
