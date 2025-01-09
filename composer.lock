@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "97ff6641a3ab1a33ceaa5731fb14fdb6",
+    "content-hash": "2e4a143da411ae8ac8dd420d93681054",
     "packages": [
         {
             "name": "bayfrontmedia/bones",
@@ -71,16 +71,16 @@
         },
         {
             "name": "bayfrontmedia/bones-service-webapp",
-            "version": "dev-dev",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bayfrontmedia/bones-service-webapp.git",
-                "reference": "c81901666ac41d97a2e6003d44e6853c10d1d29a"
+                "reference": "fd74b29170990d9ce286beec1128be7f84a30304"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bayfrontmedia/bones-service-webapp/zipball/c81901666ac41d97a2e6003d44e6853c10d1d29a",
-                "reference": "c81901666ac41d97a2e6003d44e6853c10d1d29a",
+                "url": "https://api.github.com/repos/bayfrontmedia/bones-service-webapp/zipball/fd74b29170990d9ce286beec1128be7f84a30304",
+                "reference": "fd74b29170990d9ce286beec1128be7f84a30304",
                 "shasum": ""
             },
             "require": {
@@ -120,9 +120,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bayfrontmedia/bones-service-webapp/issues",
-                "source": "https://github.com/bayfrontmedia/bones-service-webapp/tree/dev"
+                "source": "https://github.com/bayfrontmedia/bones-service-webapp/tree/v1.3.0"
             },
-            "time": "2025-01-09T21:28:24+00:00"
+            "time": "2025-01-09T23:35:10+00:00"
         },
         {
             "name": "bayfrontmedia/container",
@@ -2244,9 +2244,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "bayfrontmedia/bones-service-webapp": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

@@ -27,7 +27,7 @@
   "require": {
     "php": "^8.0",
     "bayfrontmedia/bones": "^5.3",
-    "bayfrontmedia/bones-service-webapp": "dev-dev",
+    "bayfrontmedia/bones-service-webapp": "^1.3",
     "bayfrontmedia/translation": "^2.0"
   },
   "require-dev": {

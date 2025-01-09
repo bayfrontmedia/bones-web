@@ -3,9 +3,6 @@
 /*
  * For more information, see:
  * https://github.com/bayfrontmedia/bones-service-webapp/blob/master/docs/setup.md#configuration
- *
- * NOTE:
- * This entire array is added to the Veil data array with key of "webapp"
  */
 
 return [
@@ -17,21 +14,20 @@ return [
         ],
         'default' => 'en', // Default locale
         'cookie' => [
-            'name' => 'locale',
-            'duration' => 43200 // Cookie duration (in minutes)
+            'name' => 'locale', // Cookie name
+            'duration' => 43200 // Cookie duration (in minutes): 43200 = 30 days
         ],
         'routes' => [
             'redirect' => true, // Add locale to routes?
-            'exclude' => [
-                'hosts' => [],
-                'paths' => [
+            'exclude' => [ // Excluded requests from locale processing
+                'hosts' => [], // Hosts
+                'paths' => [ // URL paths
                     '/api'
                 ],
-                'param' => 'locale_exclude'
+                'param' => 'locale_exclude' // Route parameter
             ]
         ]
     ],
     'public' => [ // Added to Veil data array with key of "webapp"
-        'version' => '1.0.0', // Web app version
     ]
 ];
