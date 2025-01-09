@@ -16,11 +16,3 @@ The [Translation](https://github.com/bayfrontmedia/translation) library is added
 Translations are saved in `resources/translations`.
 
 The default locale is taken from the `app.locale.default` config value, with a fallback to `en`.
-
-### Filesystem
-
-The [Flysystem](https://github.com/thephpleague/flysystem) library is added to the container as
-`League\Flysystem\Filesystem` with alias `filesystem`.
-
-The [Local](https://flysystem.thephpleague.com/docs/adapter/local/) adapter is used with the root directory of
-`storage/app`.

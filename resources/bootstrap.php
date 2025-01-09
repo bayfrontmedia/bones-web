@@ -36,14 +36,3 @@ $container->set('Bayfront\Translation\Translate', function () {
 });
 
 $container->setAlias('translate', 'Bayfront\Translation\Translate');
-
-// Filesystem
-
-$container->set('League\Flysystem\Filesystem', function() {
-
-    $adapter = new League\Flysystem\Local\LocalFilesystemAdapter(App::storagePath('/app'));
-    return new League\Flysystem\Filesystem($adapter);
-
-});
-
-$container->setAlias('filesystem', 'League\Flysystem\Filesystem');

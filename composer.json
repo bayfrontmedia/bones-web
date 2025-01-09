@@ -26,11 +26,9 @@
   },
   "require": {
     "php": "^8.0",
-    "ext-pdo": "*",
     "bayfrontmedia/bones": "^5.3",
     "bayfrontmedia/php-cookies": "^2.0",
-    "bayfrontmedia/translation": "^2.0",
-    "league/flysystem": "^3.29"
+    "bayfrontmedia/translation": "^2.0"
   },
   "require-dev": {
   },
