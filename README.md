@@ -7,7 +7,7 @@ It includes:
 - Router
 - Veil template engine with custom template tags
 - Translations
-- Frontend built using the Skin Tailwind CSS plugin
+- Frontend built with Tailwind CSS
 - Webpack to bundle JavaScript
 
 <hr />
