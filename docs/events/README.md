@@ -6,5 +6,4 @@ Bones events documentation can be found [here](https://github.com/bayfrontmedia/
 
 - [BootstrapEvents](bootstrapevents.md)
 - [DevEvents](devevents.md)
-- [LogEvents](logevents.md)
 - [RouterEvents](routerevents.md)

@@ -66,7 +66,7 @@ class RouterEvents extends EventSubscriber implements EventSubscriberInterface
                         'status' => 'OK'
                     ],
                     'meta' => [
-                        'version' => App::getConfig('webapp.public.version'),
+                        'version' => App::getConfig('app.version'),
                         'elapsed' => App::getElapsedTime(),
                         'time' => date('c')
                     ]
