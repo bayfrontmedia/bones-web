@@ -1,6 +1,6 @@
 {
   "name": "bayfrontmedia/bones-web",
-  "description": "A simple boilerplate to begin building a web application with Tailwind using the Bones framework.",
+  "description": "A starter kit to begin building a web application with Tailwind using the Bones framework",
   "homepage": "https://github.com/bayfrontmedia/bones-web",
   "license" : "MIT",
   "type": "project",
@@ -26,12 +26,9 @@
   },
   "require": {
     "php": "^8.0",
-    "ext-pdo": "*",
     "bayfrontmedia/bones": "^5.3",
-    "bayfrontmedia/php-cookies": "^2.0",
-    "bayfrontmedia/translation": "^2.0",
-    "league/flysystem": "^3.29",
-    "monolog/monolog": "^3.8"
+    "bayfrontmedia/bones-service-webapp": "^1.4",
+    "bayfrontmedia/translation": "^2.0"
   },
   "require-dev": {
   },

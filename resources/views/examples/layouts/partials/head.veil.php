@@ -2,19 +2,18 @@
 /*
  * Partial: Head
  *
- * Sections:
+ * Places:
  *
  *   - head (optional)
  *
- * Predefined sections:
+ * Uses:
  *
  *   - None
  *
- * $data array keys:
+ * Data:
  *
  *   - locale.current
  *   - page.title
- *   - page.description
  *
  */
 ?>
@@ -22,7 +21,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="content-language" content="{{locale.current}}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="{{page.description}}">
 
     <title>{{page.title}}</title>
 

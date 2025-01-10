@@ -6,7 +6,6 @@ use Bayfront\Bones\Abstracts\EventSubscriber;
 use Bayfront\Bones\Application\Services\Events\EventSubscription;
 use Bayfront\Bones\Application\Utilities\App;
 use Bayfront\Bones\Interfaces\EventSubscriberInterface;
-use Monolog\Logger;
 
 /**
  * Actions to perform when environment = "dev".
@@ -15,18 +14,12 @@ class DevEvents extends EventSubscriber implements EventSubscriberInterface
 {
 
     /**
-     * @var Logger
-     */
-
-    protected Logger $log;
-
-    /**
      * The container will resolve any dependencies.
      */
 
-    public function __construct(Logger $log)
+    public function __construct()
     {
-        $this->log = $log;
+
     }
 
     /**
@@ -41,20 +34,20 @@ class DevEvents extends EventSubscriber implements EventSubscriberInterface
         }
 
         return [
-            new EventSubscription('app.bootstrap', [$this, 'logDevMode'], 10)
+            new EventSubscription('app.bootstrap', [$this, 'sampleMethod'], 10)
         ];
 
     }
 
     /**
-     * Add a log entry with level debug to notify that Bones is operating in dev mode.
+     * This is a placeholder and can be removed.
      *
      * @return void
      */
 
-    public function logDevMode(): void
+    public function sampleMethod(): void
     {
-        $this->log->debug('Bones is operating in dev mode');
+        // Do something amazing
     }
 
 }

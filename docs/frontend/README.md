@@ -1,9 +1,6 @@
 # Frontend
 
-The styles are built using [Tailwind CSS](https://tailwindcss.com/),
-and utilizes the [Skin Tailwind library](https://github.com/bayfrontmedia/skin).
-
-For Skin documentation, visit: https://bayfrontmedia.github.io/skin/
+The styles are built using [Tailwind CSS](https://tailwindcss.com/).
 
 JavaScript is built using [Webpack](https://webpack.js.org/).
 
@@ -21,14 +18,25 @@ This app utilizes the following npm scripts:
 
 ## JavaScript
 
-This app utilizes Webpack to build the JavaScript file(s).
+This app utilizes Webpack to bundle the JavaScript file(s).
 
 ### app.js
 
-This is the default JavaScript file to be used with this app. Skin is initialized from this file.
+This is the default JavaScript file to be used with this app.
+
+To initialize the app, use:
+
+```html
+<script>
+    let version = '{{app.version}}';
+    App.init(version);
+</script>
+```
+
+This will enable theme detection and locale changing.
 
 ### Modules
 
 The following modules are included with this app:
 
-- [bones](/docs/frontend/modules/bones.md)
+- [theme](modules/theme.md)

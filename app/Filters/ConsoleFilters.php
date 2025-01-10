@@ -8,7 +8,7 @@ use Bayfront\Bones\Application\Utilities\App;
 use Bayfront\Bones\Interfaces\FilterSubscriberInterface;
 
 /**
- * Console-related filters.
+ * Filters used within the console.
  */
 class ConsoleFilters extends FilterSubscriber implements FilterSubscriberInterface
 {
@@ -28,23 +28,24 @@ class ConsoleFilters extends FilterSubscriber implements FilterSubscriberInterfa
 
     public function getSubscriptions(): array
     {
+
         return [
-            new FilterSubscription('about.bones', [$this, 'addAppInfo'], 10)
+            new FilterSubscription('about.bones', [$this, 'addAppVersion'], 10)
         ];
+
     }
 
     /**
-     * Add app info to the array returned by the php bones about:bones console command.
+     * Add app version to the about:bones console command.
      *
-     * @param array $arr
+     * @param array $data
      * @return array
      */
 
-    public function addAppInfo(array $arr): array
+    public function addAppVersion(array $data): array
     {
-        return array_merge($arr, [
-            'App version' => App::getConfig('app.version', '')
-        ]);
+        $data['App version'] = App::getConfig('app.version', 'UNKNOWN');
+        return $data;
     }
 
 }

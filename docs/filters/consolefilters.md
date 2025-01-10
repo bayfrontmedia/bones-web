@@ -1,11 +1,11 @@
 # Filters: ConsoleFilters
 
-Console-related filters.
+Filters used within the console.
 
-| Subscription (method)     | Filter        | Priority |
-|---------------------------|---------------|----------|
-| [addAppInfo](#addappinfo) | `about.bones` | 10       |
+| Subscription (method)           | Filter        | Priority |
+|---------------------------------|---------------|----------|
+| [addAppVersion](#addappversion) | `about.bones` | 10       |
 
-## addAppInfo
+## addAppVersion
 
-Add app info to the array returned by the `php bones about:bones` console command.
+Add app version to the `about:bones` console command.
