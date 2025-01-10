@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2e4a143da411ae8ac8dd420d93681054",
+    "content-hash": "8422ae216f983c13b4a84eb99cf03e43",
     "packages": [
         {
             "name": "bayfrontmedia/bones",
@@ -71,16 +71,16 @@
         },
         {
             "name": "bayfrontmedia/bones-service-webapp",
-            "version": "v1.3.0",
+            "version": "v1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bayfrontmedia/bones-service-webapp.git",
-                "reference": "fd74b29170990d9ce286beec1128be7f84a30304"
+                "reference": "f1fd5499ef2190ea8dcdcc733e58af660c7c848d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bayfrontmedia/bones-service-webapp/zipball/fd74b29170990d9ce286beec1128be7f84a30304",
-                "reference": "fd74b29170990d9ce286beec1128be7f84a30304",
+                "url": "https://api.github.com/repos/bayfrontmedia/bones-service-webapp/zipball/f1fd5499ef2190ea8dcdcc733e58af660c7c848d",
+                "reference": "f1fd5499ef2190ea8dcdcc733e58af660c7c848d",
                 "shasum": ""
             },
             "require": {
@@ -120,9 +120,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bayfrontmedia/bones-service-webapp/issues",
-                "source": "https://github.com/bayfrontmedia/bones-service-webapp/tree/v1.3.0"
+                "source": "https://github.com/bayfrontmedia/bones-service-webapp/tree/v1.4.0"
             },
-            "time": "2025-01-09T23:35:10+00:00"
+            "time": "2025-01-10T11:04:04+00:00"
         },
         {
             "name": "bayfrontmedia/container",

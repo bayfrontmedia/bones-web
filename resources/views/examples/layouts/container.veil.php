@@ -2,26 +2,21 @@
 /*
  * Layout: Page
  *
- * Sections:
+ * Places:
  *
- *   - content (required)
+ *  - content
+ *  - end_body (optional)
  *
- *   - head (optional)
- *   - end_body (optional)
- *
- * Predefined sections:
+ * Uses:
  *
  *   - examples/layouts/partials/head
  *   - examples/layouts/partials/header
  *   - examples/layouts/partials/footer
  *
- * $data array keys:
+ * Data:
  *
- *   - locale.all
+ *   - app.version
  *   - locale.current
- *   - page.title
- *   - page.description
- *   - year
  *
  */
 ?>

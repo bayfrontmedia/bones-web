@@ -40,8 +40,7 @@ class Home extends WebAppController
 
         $this->respond('examples/pages/home', [
             'page' => [
-                'title' => 'Homepage',
-                'description' => 'This is a homepage example'
+                'title' => 'Home'
             ],
             'params' => $params
         ]);

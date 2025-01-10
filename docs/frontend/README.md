@@ -33,7 +33,7 @@ To initialize the app, use:
 </script>
 ```
 
-This will enable theme detection and theme changing.
+This will enable theme detection and locale changing.
 
 ### Modules
 

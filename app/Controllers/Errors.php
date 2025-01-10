@@ -3,7 +3,9 @@
 namespace App\Controllers;
 
 use Bayfront\BonesService\WebApp\Abstracts\WebAppController;
+use Bayfront\BonesService\WebApp\Exceptions\WebAppServiceException;
 use Bayfront\BonesService\WebApp\WebAppService;
+use Bayfront\Translation\TranslationException;
 
 /**
  * Errors Controller.
@@ -37,12 +39,20 @@ class Errors extends WebAppController
      *
      * @param array $data (Exception data)
      * @return void
+     * @throws WebAppServiceException
+     * @throws TranslationException
      */
 
     public function error404(array $data): void
     {
-        $body = '<h1>&#x26D4; 404: Not Found</h1>';
-        $this->webAppService->response->setBody($this->webAppService->filters->doFilter('webapp.response.body', $body))->send();
+
+        $this->respond('examples/pages/404', [
+            'page' => [
+                'title' => $this->webAppService->translate->get('common.404_title')
+            ],
+            'exception' => $data
+        ]);
+
     }
 
 }

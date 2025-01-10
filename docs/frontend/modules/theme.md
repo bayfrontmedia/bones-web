@@ -35,6 +35,9 @@ to its value when clicked.
 
 Set theme.
 
+- Adds class to document
+- Saves theme to local storage
+
 **Parameters:**
 
 - `value` (string)

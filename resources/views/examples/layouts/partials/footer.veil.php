@@ -2,15 +2,15 @@
 /*
  * Partial: Footer
  *
- * Sections:
+ * Places:
  *
  *   - None
  *
- * Predefined sections:
+ * Uses:
  *
  *   - None
  *
- * $data array keys:
+ * Data:
  *
  *   - year
  *
