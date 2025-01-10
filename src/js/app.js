@@ -1,7 +1,25 @@
-import {bonesMsg} from "./modules/bones";
-import '@bayfrontmedia/skin/dist/skin.min';
+import * as Theme from "./modules/theme";
 
-window.addEventListener("load", () => {
-    Skin.App.init();
-    console.log(bonesMsg());
-});
+export function init(version) {
+    Theme.detect();
+
+    let selectLocale = document.getElementById('select-locale');
+
+    selectLocale.addEventListener("change", () => {
+
+        let locale = selectLocale.value;
+
+        if (locale !== '') {
+            window.location.href = '?locale=' + locale;
+        }
+
+    });
+
+
+    console.log('✅ App initialized (v' + version + ')');
+}
+
+window.App = {
+    init,
+    Theme
+}

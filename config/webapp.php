@@ -29,5 +29,9 @@ return [
         ]
     ],
     'public' => [ // Added to Veil data array with key of "webapp"
+        'brand' => [
+            'name' => 'Bayfront Media',
+            'logo' => 'https://cdn1.onbayfront.com/bfm/brand/bfm-logo.svg'
+        ]
     ]
 ];
