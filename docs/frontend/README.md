@@ -18,7 +18,7 @@ This app utilizes the following npm scripts:
 
 ## JavaScript
 
-This app utilizes Webpack to build the JavaScript file(s).
+This app utilizes Webpack to bundle the JavaScript file(s).
 
 ### app.js
 

@@ -1,8 +1,8 @@
 # Application documentation
 
-## Summary
+## Initial installation
 
-A simple boilerplate to begin building a web application with Tailwind using the Bones framework.
+- [Installation](app/installation.md)
 
 ## Application
 
