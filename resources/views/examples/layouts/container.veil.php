@@ -45,7 +45,7 @@
 
 @use:examples/layouts/partials/footer
 
-<script src="@route:storage/assets/js/app.js"></script>
+<script src="@route:storage/assets/js/app.js?v={{app.cache_bust}}"></script>
 
 <script>
     let version = '{{app.version}}';
