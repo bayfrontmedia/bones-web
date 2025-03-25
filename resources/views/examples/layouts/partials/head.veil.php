@@ -12,14 +12,14 @@
  *
  * Data:
  *
- *   - locale.current
+ *   - webapp.locale.current
  *   - page.title
  *
  */
 ?>
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="content-language" content="{{locale.current}}">
+    <meta http-equiv="content-language" content="{{webapp.locale.current}}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>{{page.title}}</title>

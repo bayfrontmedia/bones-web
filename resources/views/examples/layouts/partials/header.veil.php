@@ -15,19 +15,19 @@ use Bayfront\BonesService\WebApp\Utilities\VeilData;
  *
  * Data:
  *
- *   - locale.all
- *   - locale.current
- *   - webapp.brand.logo
- *   - webapp.brand.name
+ *   - webapp.locale.all
+ *   - webapp.locale.current
+ *   - webapp.public.brand.logo
+ *   - webapp.public.brand.name
  *
  */
 ?>
 <header class="container xl:max-w-screen-xl mx-auto py-4 flex flex-row justify-between items-center h-full">
 
     <div>
-        <a href="@route:home" title="{{webapp.brand.name}}">
-            <img class="h-[40px]" src="{{webapp.brand.logo}}"
-                 alt="{{webapp.brand.name}}"/>
+        <a href="@route:home" title="{{webapp.public.brand.name}}">
+            <img class="h-[40px]" src="{{webapp.public.brand.logo}}"
+                 alt="{{webapp.public.brand.name}}"/>
         </a>
     </div>
 
@@ -40,11 +40,11 @@ use Bayfront\BonesService\WebApp\Utilities\VeilData;
                         class="form-select rounded-lg px-4 py-3 w-52 border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:ring-blue-500 focus:border-blue-500">
 
                     <?php
-                    foreach (VeilData::get('locale.valid', []) as $locale) {
+                    foreach (VeilData::get('webapp.locale.valid', []) as $locale) {
 
                         $class = '';
                         $selected = '';
-                        $current_locale = VeilData::get('locale.current', '');
+                        $current_locale = VeilData::get('webapp.locale.current', '');
 
                         if ($current_locale == $locale) {
                             $class = ' text-blue-500';

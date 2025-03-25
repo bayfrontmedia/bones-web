@@ -46,6 +46,11 @@ class ViewFilters extends FilterSubscriber implements FilterSubscriberInterface
     public function addData(array $data): array
     {
         return array_merge($data, [
+            'app' => [
+                'cache_bust' => App::environment() === App::ENV_DEV ? time() : App::getConfig('app.version'),
+                'debug' => App::isDebug(),
+                'version' => App::getConfig('app.version')
+            ],
             'bones' => [
                 'version' => App::getBonesVersion()
             ],

@@ -16,12 +16,12 @@
  * Data:
  *
  *   - app.version
- *   - locale.current
+ *   - webapp.locale.current
  *
  */
 ?>
 <!DOCTYPE html>
-<html lang="{{locale.current}}">
+<html lang="{{webapp.locale.current}}">
 
 @use:examples/layouts/partials/head
 
