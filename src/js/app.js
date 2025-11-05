@@ -1,7 +1,21 @@
-import * as Theme from "./modules/theme";
+import {getProp} from "@bayfrontmedia/skin/src/js/modules/utils/object-utils";
 
-export function init(version) {
-    Theme.detect();
+/**
+ * Get config object key, or return value if not existing
+ *
+ * @param key
+ * @param defaultValue
+ * @returns {*}
+ */
+export function getConfig(key, defaultValue) {
+    return getProp(appConfig, key, defaultValue);
+}
+
+let appConfig = {};
+
+export function init(config) {
+
+    appConfig = config;
 
     let selectLocale = document.getElementById('select-locale');
 
@@ -15,11 +29,12 @@ export function init(version) {
 
     });
 
+    if (getConfig('debug', false) === true) {
+        console.log('✅ App initialized (v' + getConfig('version', '1.0') + ')');
+    }
 
-    console.log('✅ App initialized (v' + version + ')');
 }
 
 window.App = {
-    init,
-    Theme
+    init
 }

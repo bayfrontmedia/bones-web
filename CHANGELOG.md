@@ -12,6 +12,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `Fixed` for any bug fixes.
 - `Security` in case of vulnerabilities
 
+## [5.0.0] - 2025.11.05
+
+### Added
+
+- Added Skin Tailwind library and updated views as needed
+- Added `app:update` npm script
+
+### Changed
+
+- Added cache bust variable to css and js assets
+- Updated Tailwind to v4
+
 ## [4.0.2] - 2025.03.25
 
 ### Changed

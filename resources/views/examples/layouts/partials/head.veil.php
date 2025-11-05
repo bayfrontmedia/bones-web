@@ -26,7 +26,7 @@
 
     <link rel="icon" href="https://cdn1.onbayfront.com/bfm/brand/favicons/favicon-32x32.png">
 
-    <link href="@route:storage/assets/css/app.css" rel="stylesheet">
+    <link href="@route:storage/assets/css/app.css?v={{app.cache_bust}}" rel="stylesheet">
 
     ?@place:head
 

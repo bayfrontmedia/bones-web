@@ -19,19 +19,21 @@
  *   - webapp.locale.current
  *
  */
+
+
 ?>
 <!DOCTYPE html>
 <html lang="{{webapp.locale.current}}">
 
 @use:examples/layouts/partials/head
 
-<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100">
+<body class="tu-bg-default tu-text-default print:bg-white">
 
 <div id="content-wrap">
 
     @use:examples/layouts/partials/header
 
-    <main id="main" class="container xl:max-w-screen-xl mx-auto rounded-md p-4 bg-white dark:bg-gray-800 shadow">
+    <main id="main" class="container xl:max-w-screen-xl mx-auto rounded-md p-4 shadow tu-bg-content">
 
         <div class="text-center">
 
@@ -45,11 +47,31 @@
 
 @use:examples/layouts/partials/footer
 
-<script src="@route:storage/assets/js/app.js"></script>
+<script src="@route:storage/assets/js/app.js?v={{app.cache_bust}}"></script>
+<script src="@route:storage/assets/js/skin.js?v={{app.cache_bust}}"></script>
 
 <script>
-    let version = '{{app.version}}';
-    App.init(version);
+
+    const version = '{{app.version}}';
+    const debug = Boolean('{{app.debug||0}}');
+
+    App.init({
+        version: version,
+        debug: debug
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+
+        Skin.init({
+            debug: debug,
+            themeParam: {
+                enabled: true,
+                name: "theme"
+            }
+        });
+
+    });
+
 </script>
 
 ?@place:end_body
