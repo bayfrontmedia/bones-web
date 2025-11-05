@@ -1,6 +1,7 @@
 # Frontend
 
 The styles are built using [Tailwind CSS](https://tailwindcss.com/).
+The Tailwind library [Skin](https://github.com/bayfrontmedia/skin) is included with this app.
 
 JavaScript is built using [Webpack](https://webpack.js.org/).
 
@@ -8,13 +9,14 @@ JavaScript is built using [Webpack](https://webpack.js.org/).
 
 This app utilizes the following npm scripts:
 
+- `npm run app:update` - Update dependencies
 - `npm run watch:styles` - Watch styles
 - `npm run build:styles` - Build styles (unminified)
 - `npm run build:styles:prod` - Build styles (minified)
 - `npm run watch:webpack` - Watch scripts (development mode)
 - `npm run build:webpack` - Build scripts (unminified, development mode)
 - `npm run build:webpack:prod` - Build scripts (minified, production mode)
-- `npm run build:prod` - Build minified scripts and styles
+- `npm run build:prod` - Update dependencies and build minified scripts and styles
 
 ## JavaScript
 
@@ -28,15 +30,14 @@ To initialize the app, use:
 
 ```html
 <script>
-    let version = '{{app.version}}';
-    App.init(version);
+    const version = '{{app.version}}';
+    const debug = Boolean('{{app.debug||0}}');
+
+    App.init({
+        version: version,
+        debug: debug
+    });
 </script>
 ```
 
-This will enable theme detection and locale changing.
-
-### Modules
-
-The following modules are included with this app:
-
-- [theme](modules/theme.md)
+This will enable changing the locale.

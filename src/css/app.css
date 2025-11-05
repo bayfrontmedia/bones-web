@@ -1,3 +1,14 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss" source(none);
+
+@import "./_theme.css";
+@import "./custom/_variables.css";
+@import "./custom/_components.css";
+@import "./custom/_utilities.css";
+@import "../../node_modules/@bayfrontmedia/skin/dist/css/skin.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@source "../../resources/views";
+@source "../../storage/public/assets/js";
+
+@plugin "@tailwindcss/forms";

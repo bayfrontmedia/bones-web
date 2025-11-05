@@ -37,17 +37,15 @@ use Bayfront\BonesService\WebApp\Utilities\VeilData;
 
             <label>
                 <select id="select-locale"
-                        class="form-select rounded-lg px-4 py-3 w-52 border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:ring-blue-500 focus:border-blue-500">
+                        class="tc-form-select min-w-3xs">
 
                     <?php
                     foreach (VeilData::get('webapp.locale.valid', []) as $locale) {
 
-                        $class = '';
                         $selected = '';
                         $current_locale = VeilData::get('webapp.locale.current', '');
 
                         if ($current_locale == $locale) {
-                            $class = ' text-blue-500';
                             $selected = ' selected';
                         }
 
@@ -59,8 +57,8 @@ use Bayfront\BonesService\WebApp\Utilities\VeilData;
             </label>
 
             <div>
-                <button class="hidden dark:inline-flex w-10 h-10 justify-center items-center rounded-full cursor-pointer hover:bg-gray-800"
-                        data-theme-toggle="light">
+                <button class="hidden dark:inline-flex w-10 h-10 justify-center items-center rounded-full cursor-pointer hover:backdrop-brightness-80"
+                        data-skin-theme-toggle="light">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                          stroke="currentColor" class="w-6 h-6 text-yellow-300">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -68,8 +66,8 @@ use Bayfront\BonesService\WebApp\Utilities\VeilData;
                     </svg>
                 </button>
 
-                <button class="inline-flex dark:hidden w-10 h-10 justify-center items-center rounded-full cursor-pointer hover:bg-gray-200"
-                        data-theme-toggle="dark">
+                <button class="inline-flex dark:hidden w-10 h-10 justify-center items-center rounded-full cursor-pointer hover:backdrop-brightness-95"
+                        data-skin-theme-toggle="dark">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                          stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round"
